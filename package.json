@@ -1,0 +1,16 @@
+{
+    "name": "mi-proyecto",
+    "version": "1.0.0",
+    "description": "Un entorno de desarrollo web con Node.js y MySQL",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "mysql": "^2.18.1", 
+      "express": "^4.17.1",
+      "dotenv": "^10.0.0"
+
+    }
+  }
+  

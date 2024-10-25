@@ -1,0 +1,21 @@
+version: '3.8'  # Versión de docker-compose
+
+services:
+  web:
+    build: .  # Construir el servicio a partir del Dockerfile en el directorio actual
+    ports:
+      - "3000:3000"  # Mapear el puerto 3000 del contenedor al puerto 3000 del host
+    environment:
+      - DATABASE_HOST=db  # Definir la variable de entorno para la conexión a la base de datos
+      - DATABASE_USER=root #Definir la variable de entorno del usuario de la base de datos
+      - DATABASE_PASSWORD=password #Definir la varibale de entorno de la contraseña del usuario para la base de datos
+      - DATABASE_NAME=mydb #Definir la variable de entorno del nombre de la base de datos
+
+  db:
+    image: mysql:5.7  # Usar la imagen oficial de MySQL la version 5.7
+    restart: always  # Reiniciar el contenedor en caso de fallo
+    environment:
+      MYSQL_ROOT_PASSWORD: password  # Contraseña del usuario root
+      MYSQL_DATABASE: mydb  # Crear una base de datos llamada mydb
+    ports:
+      - "3306:3306"  # Mapear el puerto 3306 del contenedor al puerto 3306 del host
